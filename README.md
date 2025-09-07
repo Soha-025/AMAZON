@@ -23,12 +23,12 @@ It delivers a seamless shopping experience with responsive design, smooth cart m
 ```bash
 git clone https://github.com/Soha-025/AMAZON.git
 ```
-2. Install dependencies:
+2. Install dependencies ⚡
 
 ```bash
 npm install
 ```
-3. Run:
+3. Run locally 💻
 
 ```bash
 npm run dev
