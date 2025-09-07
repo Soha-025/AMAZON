@@ -1,0 +1,68 @@
+const products = [
+  {
+    id: 1,
+    title: "Wireless Headphones",
+    price: 3500,
+    rating: 4,
+    image: "https://i.pinimg.com/736x/81/6d/6e/816d6ecd3bfbe3cf1580c14abaf1da8d.jpg",
+    description: "High-quality wireless headphones with noise cancellation.",
+  },
+  {
+    id: 2,
+    title: "Panasonic LUMIX TZ90 ",
+    price: 5000,
+    rating: 5,
+    image: "https://i.pinimg.com/1200x/95/7a/bb/957abb09d8fe19471e35e33715088c08.jpg",
+    description: "Stylish smartwatch with health tracking features.",
+  },
+  {
+    id: 3,
+    title: "G Lamp-Bluetooth Speaker",
+    price: 6500,
+    rating: 4,
+    image: "https://i.pinimg.com/1200x/ef/92/e5/ef92e5430651d3cb00d260c7901328b8.jpg",
+    description: "Portable bluetooth speaker with powerful sound.",
+  },
+  {
+    id: 4,
+    title: "Smart Watch",
+    price: 5000,
+    rating: 5,
+    image: "https://i.pinimg.com/736x/96/55/7b/96557b0255cd06a6eedf306cf2e78b17.jpg",
+    description: "Stylish smartwatch with health tracking features.",
+  },
+  {
+    id: 5,
+    title: "MacBook Air M2",
+    price: 195000,
+    rating: 5,
+    image: "https://i.pinimg.com/736x/88/2a/3d/882a3dc31b6bf15776ec0c309145cb38.jpg",
+    description: "Stylish smartwatch with health tracking features.",
+  },
+  {
+    id: 6,
+    title: "Samsung galaxy S25 Ultra",
+    price: 75000,
+    rating: 4,
+    image: "https://i.pinimg.com/736x/d8/e6/9f/d8e69f9b36b7a2cf0a3add6d0d83498a.jpg",
+    description: "Stylish smartwatch with health tracking features.",
+  },
+    {
+    id: 7,
+    title: "Flame Humidifer",
+    price: 4600,
+    rating: 5,
+    image: "https://i.pinimg.com/1200x/64/93/c8/6493c8577d60a47cb81dbad77d3de148.jpg",
+    description: "Stylish smartwatch with health tracking features.",
+  },
+    {
+    id: 8,
+    title: "LED Electronic Alarm Clock",
+    price: 7000,
+    rating: 5,
+    image: "https://i.pinimg.com/1200x/b7/35/43/b73543b3710320741626364ac26b44fe.jpg",
+    description: "Stylish smartwatch with health tracking features.",
+  },
+];
+
+export default products;
