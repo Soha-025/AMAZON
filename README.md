@@ -39,4 +39,4 @@ npm run dev
 
 ---
 
-🛍️ An elegant React-powered Amazon clone that blends ✨ simplicity, 🎨 style, and ⚡ powerful shopping features in one seamless experience.
+🛍️ *An elegant React-powered Amazon clone that blends ✨ simplicity, 🎨 style, and ⚡ powerful shopping features in one seamless experience*
