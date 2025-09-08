@@ -1,72 +1,93 @@
 import React, { useState } from "react";
-import Header from "./components/Header.jsx";
-import Footer from "./components/Footer.jsx";
-import ProductCard from "./components/ProductCard.jsx";
-import CartDrawer from "./components/CartDrawer.jsx";
-import ProductModal from "./components/ProductModal.jsx";
-import products from "./data/products.js";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Home from "./pages/Home";
+import Checkout from "./pages/Checkout";
+import ProductDetails from "./pages/ProductDetails";
+import CartDrawer from "./components/CartDrawer";
+import SignIn from "./pages/SignIn";
+import products from "./data/products";
+import ProductPage from "./pages/ProductPage";
+import DiscountPage from "./pages/DiscountPage";
+import "@fortawesome/fontawesome-free/css/all.min.css";
 
-function App() {
-  const [cartOpen, setCartOpen] = useState(false);
-  const [cartItems, setCartItems] = useState([]);
-  const [modalOpen, setModalOpen] = useState(false);
-  const [selectedProduct, setSelectedProduct] = useState(null);
+const App = () => {
+  const [cart, setCart] = useState([]);
+  const [isCartOpen, setIsCartOpen] = useState(false);
 
+  // Add to Cart
   const addToCart = (product) => {
-    const exist = cartItems.find((item) => item.id === product.id);
-    if (exist) {
-      setCartItems(
-        cartItems.map((item) =>
-          item.id === product.id
-            ? { ...item, quantity: item.quantity + 1 }
-            : item
-        )
-      );
-    } else {
-      setCartItems([...cartItems, { ...product, quantity: 1 }]);
-    }
+    setCart((prev) => {
+      const exists = prev.find((item) => item.id === product.id);
+      if (exists) {
+        return prev.map((item) =>
+          item.id === product.id ? { ...item, qty: item.qty + 1 } : item
+        );
+      }
+      return [...prev, { ...product, qty: 1 }];
+    });
   };
 
-  const removeFromCart = (product) => {
-    setCartItems(cartItems.filter((item) => item.id !== product.id));
+  // Increase Quantity
+  const increaseQty = (item) => {
+    setCart((prev) =>
+      prev.map((p) => (p.id === item.id ? { ...p, qty: p.qty + 1 } : p))
+    );
+  };
+
+  // Decrease Quantity
+  const decreaseQty = (item) => {
+    setCart((prev) =>
+      prev.map((p) =>
+        p.id === item.id && p.qty > 1 ? { ...p, qty: p.qty - 1 } : p
+      )
+    );
+  };
+
+  // Remove Item
+  const removeItem = (item) => {
+    setCart((prev) => prev.filter((p) => p.id !== item.id));
   };
 
   return (
-    <div className="app" style={{ fontFamily:"Arial, sans-serif", background:"#f5f5f5", minHeight:"100vh" }}>
-      <Header 
-        cartCount={cartItems.length} 
-        onCartOpen={() => setCartOpen(!cartOpen)}
-        onSignIn={() => alert("Sign In not implemented yet!")}
+    <Router>
+      <Header
+        cartCount={cart.reduce((sum, i) => sum + i.qty, 0)}
+        onCartClick={() => setIsCartOpen(true)}
       />
 
-      <main style={{ padding:"2rem", display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(220px, 1fr))", gap:"1.5rem" }}>
-        {products.map((product) => (
-          <ProductCard
-            key={product.id}
-            product={product}
-            onAddToCart={addToCart}
-            onView={() => { setSelectedProduct(product); setModalOpen(true); }}
-          />
-        ))}
-      </main>
+      {isCartOpen && (
+        <CartDrawer
+          cartItems={cart}
+          onClose={() => setIsCartOpen(false)}
+          onIncrease={increaseQty}
+          onDecrease={decreaseQty}
+          onRemove={removeItem}
+        />
+      )}
 
-      <CartDrawer
-        isOpen={cartOpen}
-        onClose={() => setCartOpen(false)}
-        cartItems={cartItems}
-        onRemove={removeFromCart}
-      />
-
-      <ProductModal
-        product={selectedProduct}
-        isOpen={modalOpen}
-        onClose={() => setModalOpen(false)}
-        onAddToCart={addToCart}
-      />
+      <Routes>
+        <Route
+          path="/"
+          element={<Home products={products} addToCart={addToCart} />}
+        />
+        <Route
+          path="/product/:id"
+          element={<ProductDetails products={products} addToCart={addToCart} />}
+        />
+        <Route
+  path="/category/:category"
+  element={<ProductPage addToCart={addToCart} />}
+/>
+        <Route path="/checkout" element={<Checkout cartItems={cart} />} />
+        <Route path="/signin" element={<SignIn />} />
+        <Route path="/category/discount" element={<DiscountPage addToCart={addToCart} />} />
+      </Routes>
 
       <Footer />
-    </div>
+    </Router>
   );
-}
+};
 
 export default App;
