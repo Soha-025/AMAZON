@@ -1,12 +1,42 @@
-# React + Vite
+# 🛒 Amazon - React E-commerce
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern **Amazon-style e-commerce website** built with **React** ⚛️.  
+It delivers a seamless shopping experience with responsive design, smooth cart management, and elegant product interactions. ✨
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## Expanding the ESLint configuration
+- 🖼️ Responsive product grid with large images  
+- ➕ Add to Cart functionality with quantity management  
+- 🛍️ Cart drawer with **Total calculation** and **Checkout button**  
+- 🔎 Product modal for detailed view  
+- 📱 Modern, responsive, and user-friendly design  
+- ✅ Fixed numeric price calculation  
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🛠️ Installation
+
+1. **Clone the repo** 📂  
+
+```bash
+git clone https://github.com/Soha-025/AMAZON.git
+```
+2. Install dependencies ⚡
+
+```bash
+npm install
+```
+3. Run locally 💻
+
+```bash
+npm run dev
+```
+
+## 📸 Preview
+<img width="1909" height="863" alt="image" src="https://github.com/user-attachments/assets/48ac51f7-eea8-4106-9410-1db0a8bd7278" />
+
+---
+
+🛍️ *An elegant React-powered Amazon clone that blends ✨ simplicity, 🎨 style, and ⚡ powerful shopping features in one seamless experience*
